@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="geekster">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="16"/>
+    <property name="source" value="16"/>
+    <path id="geekster.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <path id="run.First (1).classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <path id="run.Inputpractice.classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <path id="run.Javaliterals.classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <path id="run.Mmarks.classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <path id="run.rabish.classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <path id="run.Userinput.classpath">
+        <path refid="geekster.classpath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="geekster.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="First (1)">
+        <java classname="com.codebind.First" failonerror="true" fork="yes">
+            <classpath refid="run.First (1).classpath"/>
+        </java>
+    </target>
+    <target name="Inputpractice">
+        <java classname="com.codebind.Inputpractice" failonerror="true" fork="yes">
+            <classpath refid="run.Inputpractice.classpath"/>
+        </java>
+    </target>
+    <target name="Javaliterals">
+        <java classname="com.codebind.Javaliterals" failonerror="true" fork="yes">
+            <classpath refid="run.Javaliterals.classpath"/>
+        </java>
+    </target>
+    <target name="Mmarks">
+        <java classname="com.codebind.Mmarks" failonerror="true" fork="yes">
+            <classpath refid="run.Mmarks.classpath"/>
+        </java>
+    </target>
+    <target name="rabish">
+        <java classname="com.codebind.rabish" failonerror="true" fork="yes">
+            <classpath refid="run.rabish.classpath"/>
+        </java>
+    </target>
+    <target name="Userinput">
+        <java classname="com.codebind.Userinput" failonerror="true" fork="yes">
+            <classpath refid="run.Userinput.classpath"/>
+        </java>
+    </target>
+</project>
